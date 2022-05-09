@@ -1,5 +1,8 @@
+/* eslint-disable class-methods-use-this */
 export default class Structure {
-  constructor() {}
+  constructor() {
+    // do nothing
+  }
 
   create(className, tag, content) {
     this.elem = document.createElement(tag)

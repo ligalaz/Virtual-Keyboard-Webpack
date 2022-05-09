@@ -37,9 +37,9 @@ const layouts = [
     key: "Digit2",
     ru: {
       lowercase: "2",
-      uppercase: '"',
+      uppercase: `"`,
       capsLowercase: "2",
-      capsUppercase: '"',
+      capsUppercase: `"`,
       toCapsUppercase: "2",
     },
     en: {

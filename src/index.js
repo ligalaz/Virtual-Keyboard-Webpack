@@ -1,3 +1,4 @@
+/* eslint-disable lines-between-class-members */
 /*import layouts*/
 
 import footerHTML from "./modules/footer.js"
@@ -7,16 +8,18 @@ import "./assets/styles/style.css"
 
 /* Structure Init */
 let lang = localStorage.getItem("lang") || "en"
+let inc = 0
 
 const classCreator = new Structure()
 
-class keyButton {
+class KeyButton {
   constructor(className, tag) {
     this.className = className
     this.tag = tag
     this.id = layouts[inc].key
     this.lang = localStorage.getItem("lang") || "en"
   }
+
   create() {
     this.elem = document.createElement(this.tag)
     return this.elem
@@ -40,7 +43,7 @@ class keyButton {
     this.addClassName()
     this.addAttributes()
     this.elem.textContent = `${layouts[inc][this.lang].lowercase}`
-    inc++
+    inc += 1
     return this.elem
   }
 }
@@ -84,10 +87,9 @@ function getLayoutIndex(code) {
 
 /* Key Button Init */
 
-let inc = 0
-const buttonsContainer = new Array()
-layouts.forEach((item) => {
-  buttonsContainer.push(new keyButton("keyButton", "div").init())
+const buttonsContainer = []
+layouts.forEach(() => {
+  buttonsContainer.push(new KeyButton("keyButton", "div").init())
 })
 
 const big = [
@@ -122,16 +124,16 @@ classCreator.toAppend(keyboard, ...buttonsContainer)
 /* combine container */
 
 const altContainer = buttonsContainer.filter((item) =>
-  new RegExp("Alt", "g").test(item.getAttribute("data-key"))
+  /Alt/g.test(item.getAttribute("data-key"))
 )
 const shiftContainer = buttonsContainer.filter((item) =>
-  new RegExp("Shift", "g").test(item.getAttribute("data-key"))
+  /Shift/g.test(item.getAttribute("data-key"))
 )
 const ctrlContainer = buttonsContainer.filter((item) =>
-  new RegExp("Control", "g").test(item.getAttribute("data-key"))
+  /Control/g.test(item.getAttribute("data-key"))
 )
 const metaContainer = buttonsContainer.filter((item) =>
-  new RegExp("Meta", "g").test(item.getAttribute("data-key"))
+  /Meta/g.test(item.getAttribute("data-key"))
 )
 
 function addCombine(combine, randomClass) {
@@ -274,7 +276,9 @@ function changeLanguage(language) {
     lang = language
     localStorage.setItem("lang", lang)
   })
-  altContainer.forEach((item) => item.classList.remove("language-trigger"))
+  altContainer.forEach((item) => {
+    item.classList.remove("language-trigger")
+  })
 }
 
 /* VIRTUAL KEYBOARD */
@@ -313,7 +317,7 @@ keyboard.addEventListener("click", (event) => {
             )
           : textArea.setRangeText("")
         textArea.focus()
-        textArea.selectionStart = textArea.selectionStart
+        textArea.selectionStart
         break
       case "Delete":
         textArea.selectionStart === textArea.selectionEnd
@@ -324,7 +328,7 @@ keyboard.addEventListener("click", (event) => {
             )
           : textArea.setRangeText("")
         textArea.focus()
-        textArea.selectionStart = textArea.selectionStart
+        textArea.selectionStart
         break
       case "Tab":
         textArea.selectionStart === textArea.selectionEnd
@@ -380,11 +384,11 @@ keyboard.addEventListener("click", (event) => {
 
     /* Alt */
 
-    !new RegExp("(Shift|Alt)", "g").test(event.target.getAttribute("data-key"))
+    !/(Shift|Alt)/g.test(event.target.getAttribute("data-key"))
       ? clearCombine(altContainer, "language-trigger")
       : null
 
-    if (new RegExp("Alt", "g").test(event.target.getAttribute("data-key"))) {
+    if (/Alt/g.test(event.target.getAttribute("data-key"))) {
       addCombine(altContainer, "language-trigger")
       textArea.focus()
       textArea.selectionStart = textArea.value.length
@@ -392,7 +396,7 @@ keyboard.addEventListener("click", (event) => {
 
     /* Ctrl */
 
-    !new RegExp("Control", "g").test(event.target.getAttribute("data-key"))
+    !/Control/g.test(event.target.getAttribute("data-key"))
       ? clearCombine(ctrlContainer, "arrow-trigger")
       : null
 
@@ -402,20 +406,21 @@ keyboard.addEventListener("click", (event) => {
 
     /* Shift */
 
-    if (new RegExp("Shift", "g").test(event.target.getAttribute("data-key"))) {
+    if (/Shift/g.test(event.target.getAttribute("data-key"))) {
       event.target.classList.toggle("active-virtual-key")
       shiftEmulation()
     }
 
     /* Meta */
 
-    !new RegExp("Meta", "g").test(event.target.getAttribute("data-key"))
+    !/Meta/g.test(event.target.getAttribute("data-key"))
       ? clearCombine(metaContainer, "meta-trigger")
       : null
 
-    if (new RegExp("Meta").test(event.target.getAttribute("data-key"))) {
+    if (/Meta/.test(event.target.getAttribute("data-key"))) {
       addCombine(metaContainer, "meta-trigger")
 
+      // eslint-disable-next-line no-alert
       alert(
         "Read the instructions for control the Keyboard in README.md at the root of the project"
       )
@@ -438,8 +443,9 @@ window.addEventListener("keydown", (event) => {
       item.classList.add("active-virtual-key")
       item.classList.add("animation-dropdown")
     } else {
-      if (item.getAttribute("data-key") !== "CapsLock")
+      if (item.getAttribute("data-key") !== "CapsLock") {
         item.classList.remove("active-virtual-key")
+      }
     }
   })
 
@@ -458,15 +464,15 @@ window.addEventListener("keydown", (event) => {
     lang === "ru" ? changeLanguage("en") : changeLanguage("ru")
   }
 
-  if (!new RegExp("(Shift|Alt|Caps)", "g").test(event.code)) {
+  if (!/(Shift|Alt|Caps)/g.test(event.code)) {
     checkCapsShift()
   }
 
-  !new RegExp("(Shift|Alt)", "g").test(event.code)
+  !/(Shift|Alt)/g.test(event.code)
     ? clearCombine(altContainer, "language-trigger")
     : null
 
-  if (new RegExp("Shift", "g").test(event.code)) {
+  if (/Shift/g.test(event.code)) {
     if (
       (!event.altKey && event.code === "ShiftLeft") ||
       (!event.altKey && event.code === "ShiftRight")
@@ -515,22 +521,23 @@ window.addEventListener("keydown", (event) => {
 
   /* Combine */
 
-  !new RegExp("Control", "g").test(event.code)
+  !/Control/g.test(event.code)
     ? clearCombine(ctrlContainer, "arrow-trigger")
     : null
 
-  if (new RegExp("Arrow").test(event.code)) {
+  if (/Arrow/.test(event.code)) {
     event.preventDefault()
     regulatButtonText(layouts[getLayoutIndex(event.code)][lang].lowercase)
   }
 
+  // eslint-disable-next-line prefer-regex-literals
   new RegExp("Meta").test(event.code)
     ? alert(
         "Read the instructions for control the Keyboard in README.md at the root of the project"
       )
     : null
 
-  if (new RegExp("Alt", "g").test(event.code)) {
+  if (/Alt/g.test(event.code)) {
     event.preventDefault()
     textArea.focus()
     textArea.selectionStart = textArea.value.length
