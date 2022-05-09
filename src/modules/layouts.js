@@ -1096,7 +1096,7 @@ const layouts = [
     },
     en: {
       lowercase: "↓",
-      uppercase: "↓;",
+      uppercase: "↓",
       capsLowercase: "↓",
       capsUppercase: "↓",
       toCapsUppercase: "↓",
