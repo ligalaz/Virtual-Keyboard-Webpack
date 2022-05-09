@@ -162,16 +162,23 @@ textarea:focus {
 /* logo */
 
 .logo {
-  width: 70px;
-  height: 70px;
-  fill: rgb(70, 130, 180);
   cursor: pointer;
   transition: 0.5s ease-in-out;
 }
 .logo:hover {
-  fill: coral;
   transform: scale(1.25);
   transition: 0.5s ease-in-out;
+}
+.school,
+.github {
+  width: 70px;
+  height: 70px;
+}
+.school {
+  background: url("../icons/rs_school.svg");
+}
+.github {
+  background: url("../icons/github.svg");
 }
 
 /* Animation & Effect*/

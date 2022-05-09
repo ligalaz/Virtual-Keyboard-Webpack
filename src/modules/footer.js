@@ -1,10 +1,8 @@
 let footerHTML = ` <div class="footer-links">
 <div class="footer-links__github">
   <a class="link" href="https://github.com/ligalaz" target="_blank">
-    <svg class="logo">
-      <use
-        xlink:href="./assets/icons/github.svg#github"
-      ></use>
+    <svg class="logo github">
+      
     </svg>
   </a>
 </div>
@@ -20,8 +18,8 @@ let footerHTML = ` <div class="footer-links">
 <div class="footer-school-info">
 <div class="footer-school-info__rsschool">
   <a class="link" href="https://rs.school/" target="_blank">
-    <svg class="logo">
-      <use xlink:href="./assets/icons/rs_school.svg#rs_school"></use>
+    <svg class="logo school">
+      
     </svg>
   </a>
 </div>
