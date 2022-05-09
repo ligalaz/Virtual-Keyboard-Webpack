@@ -62,10 +62,6 @@ classCreator.toPrepend(textRow, switcher, textArea)
 classCreator.toPrepend(switcher, langEn)
 createStructure(footer).innerHTML = footerHTML
 classCreator.toAppend(createStructure(main), textRow, keyboard)
-function audio() {
-  let audio = new Audio("../assets/audio/keyClick.mp3")
-  audio.play()
-}
 
 /* Structure function */
 
@@ -285,9 +281,7 @@ function changeLanguage(language) {
 
 keyboard.addEventListener("click", (event) => {
   if (event.target.classList.contains("keyButton")) {
-    audio()
     event.target.classList.add("animation-click")
-    flag = false
 
     /* Regular Button */
 
@@ -436,7 +430,7 @@ keyboard.addEventListener("click", (event) => {
 
 window.addEventListener("keydown", (event) => {
   textArea.focus()
-  audio()
+
   /* Effects */
   buttonsContainer.forEach((item) => {
     if (event.code === item.getAttribute("data-key")) {

@@ -27,7 +27,7 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
       {
-        test: /\.(png|svg|jpg|svg#rs_school)$/,
+        test: /\.(png|svg|jpg|)$/,
         type: "asset/resource",
       },
       {

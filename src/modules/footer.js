@@ -18,9 +18,7 @@ let footerHTML = ` <div class="footer-links">
 <div class="footer-school-info">
 <div class="footer-school-info__rsschool">
   <a class="link" href="https://rs.school/" target="_blank">
-    <svg class="logo school">
-      
-    </svg>
+  <svg class="logo school"></svg>
   </a>
 </div>
 </div>`

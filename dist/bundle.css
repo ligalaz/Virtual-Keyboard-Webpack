@@ -1,23 +1,132 @@
-@import "./reset.css";
+/*!*******************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/assets/styles/reset.css ***!
+  \*******************************************************************************/
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  text-decoration-skip-ink: none;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+ul {
+  list-style-type: none;
+}
+* {
+  box-sizing: border-box;
+}
 
+/*!*******************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/assets/styles/style.css ***!
+  \*******************************************************************************/
 /* fonts */
 
 @font-face {
   font-family: "Oswald";
   font-style: normal;
-  src: url(../fonts/Oswald/Oswald-Regular.ttf);
+  src: url(72bf4cde68ddbc03f143.ttf);
 }
 
 @font-face {
   font-family: "Play";
   font-style: normal;
-  src: url(../fonts/Play/Play-Regular.ttf);
+  src: url(e0424c5771f87080b05e.ttf);
 }
 
 @font-face {
   font-family: "Bangers";
   font-style: normal;
-  src: url(../fonts/Bangers/Bangers-Regular.ttf);
+  src: url(0e89a2279da24d283991.ttf);
 }
 
 /*  Structure */
@@ -165,7 +274,7 @@ textarea:focus {
   width: 70px;
   height: 70px;
   cursor: pointer;
-  background: url("../icons/rs_school.svg") no-repeat center center;
+  background: url(c921b0b4264c6a845084.svg) no-repeat center center;
   transition: 0.5s ease-in-out;
 }
 .logo:hover {
@@ -173,7 +282,7 @@ textarea:focus {
   transition: 0.5s ease-in-out;
 }
 .github {
-  background: url("../icons/github.svg");
+  background: url(49a90c5cc7c9d0730ed4.svg);
 }
 
 /* Animation & Effect*/
@@ -233,3 +342,4 @@ textarea:focus {
     transform: rotate(0deg);
   }
 }
+
