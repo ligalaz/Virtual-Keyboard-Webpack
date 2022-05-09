@@ -62,4 +62,4 @@
 
 ## _Наслаждайся этим!_
 
-link:https://ligalaz.github.io/Virtual-Keyboard-Webpack/
+link:https://ligalaz.github.io/Virtual-Keyboard-Webpack/dist/
