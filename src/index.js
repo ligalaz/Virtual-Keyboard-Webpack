@@ -449,6 +449,15 @@ window.addEventListener("keydown", (event) => {
     }
   })
 
+  buttonsContainer.forEach((item) => {
+    if (event.code === item.getAttribute("data-key")) {
+      if (!item.hasAttribute("special")) {
+        event.preventDefault()
+        regulatButtonText(item.textContent)
+      }
+    }
+  })
+
   /* Alt Shift */
 
   if (
